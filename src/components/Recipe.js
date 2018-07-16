@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import { ScaleLoader } from 'react-spinners';
+
 const style = {
   card: {
     maxWidth: '900px',
@@ -22,11 +24,18 @@ const style = {
   },
   link: {
     color: '#e53935'
+  },
+  spinner: {
+    width: '100px',
+    position: 'absolute',
+    top: '50%',
+    left: '50%'
   }
 };
 class Recipe extends React.Component {
   state = {
-    activeRecipe: []
+    activeRecipe: [],
+    loading: true
   };
   componentDidMount = async () => {
     const title = this.props.location.state.recipe;
@@ -38,7 +47,7 @@ class Recipe extends React.Component {
     );
 
     const res = await recipe_call.json();
-    this.setState({ activeRecipe: res.recipes[0] });
+    this.setState({ activeRecipe: res.recipes[0], loading: false });
     console.log(this.state.activeRecipe);
   };
   render() {
@@ -51,6 +60,9 @@ class Recipe extends React.Component {
     } = this.state.activeRecipe;
     return (
       <div style={style.container}>
+        <div style={style.spinner}>
+          <ScaleLoader color={' #e53935'} loading={this.state.loading} />
+        </div>
         {this.state.activeRecipe.length !== 0 && (
           <Card style={style.card}>
             <CardMedia image={image_url} title={title} style={style.media} />
