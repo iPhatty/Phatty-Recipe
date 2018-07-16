@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -42,7 +44,16 @@ const Recipes = props => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button color="secondary">View</Button>
+              <Button color="secondary">
+                <Link
+                  to={{
+                    pathname: `/recipe/${recipe.recipe_id}`,
+                    state: { recipe: recipe.title }
+                  }}
+                >
+                  View
+                </Link>
+              </Button>
             </CardActions>
           </Card>
         </Grid>
