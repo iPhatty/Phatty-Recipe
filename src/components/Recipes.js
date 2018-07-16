@@ -10,8 +10,7 @@ import Grid from '@material-ui/core/Grid';
 const Recipes = props => {
   const style = {
     card: {
-      width: '100%',
-      height: '28.75rem'
+      width: '100%'
     },
     media: {
       paddingTop: '56.25%' // 16:9
@@ -34,7 +33,9 @@ const Recipes = props => {
             />
             <CardContent>
               <Typography gutterBottom variant="title">
-                {recipe.title}
+                {recipe.title.length < 20
+                  ? `${recipe.title}`
+                  : `${recipe.title.substring(0, 19)}...`}
               </Typography>
               <Typography gutterBottom variant="caption" component="p">
                 {recipe.publisher}
