@@ -18,12 +18,23 @@ class App extends Component {
     const API_KEY = process.env.REACT_APP_API_KEY;
 
     const api_call = await fetch(
-      `${cors}http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&count=5`
+      `${cors}http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&count=12`
     );
 
     const data = await api_call.json();
     console.log(data.recipes);
     this.setState({ recipes: data.recipes });
+  };
+  componentDidMount = () => {
+    const localRecipe = JSON.parse(localStorage.getItem('recipes'));
+    if (localRecipe !== null) {
+      this.setState({ recipes: localRecipe });
+    }
+  };
+
+  componentDidUpdate = () => {
+    const recipes = JSON.stringify(this.state.recipes);
+    localStorage.setItem('recipes', recipes);
   };
   render() {
     return (
@@ -31,6 +42,7 @@ class App extends Component {
         <header className="App-header">
           <img
             src="https://image.flaticon.com/icons/svg/18/18460.svg"
+            alt="App Logo"
             className="App-logo"
           />
           <h1 className="App-title">Phatty Search</h1>
