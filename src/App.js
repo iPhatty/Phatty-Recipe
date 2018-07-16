@@ -29,7 +29,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Recipe Search</h1>
+          <img
+            src="https://image.flaticon.com/icons/svg/18/18460.svg"
+            className="App-logo"
+          />
+          <h1 className="App-title">Phatty Search</h1>
         </header>
         <Form getRecipe={this.getRecipe} />
         <Recipes recipes={this.state.recipes} />

@@ -5,7 +5,8 @@ import Button from '@material-ui/core/Button';
 const Form = props => {
   const style = {
     button: {
-      marginLeft: '1rem'
+      marginLeft: '1rem',
+      background: 'linear-gradient(to right,#e35d5b,#e53935)'
     },
     form: {
       margin: '2rem 0'

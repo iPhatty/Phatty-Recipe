@@ -11,7 +11,7 @@ const Recipes = props => {
   const style = {
     card: {
       width: '100%',
-      height: '25rem'
+      height: '28.75rem'
     },
     media: {
       paddingTop: '56.25%' // 16:9
@@ -25,7 +25,7 @@ const Recipes = props => {
   const recipeList = () =>
     props.recipes.map(recipe => {
       return (
-        <Grid item xs={12} sm={6} lg={3}>
+        <Grid key={recipe.recipe_id} item xs={12} sm={6} lg={3}>
           <Card style={style.card}>
             <CardMedia
               image={recipe.image_url}
@@ -36,8 +36,13 @@ const Recipes = props => {
               <Typography gutterBottom variant="title">
                 {recipe.title}
               </Typography>
+              <Typography gutterBottom variant="caption" component="p">
+                {recipe.publisher}
+              </Typography>
             </CardContent>
-            <CardActions />
+            <CardActions>
+              <Button color="secondary">View</Button>
+            </CardActions>
           </Card>
         </Grid>
       );
@@ -45,7 +50,7 @@ const Recipes = props => {
 
   return (
     <div style={style.container}>
-      <Grid container spacing={16} alignItems="center">
+      <Grid container spacing={16} alignItems="center" alignContent="center">
         {recipeList()}
       </Grid>
     </div>
