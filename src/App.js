@@ -31,6 +31,7 @@ class App extends Component {
         <header className="App-header">
           <img
             src="https://image.flaticon.com/icons/svg/18/18460.svg"
+            alt="App Logo"
             className="App-logo"
           />
           <h1 className="App-title">Phatty Search</h1>
