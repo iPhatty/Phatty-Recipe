@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 const style = {
   card: {
     maxWidth: '900px',
-    margin: '8rem auto 0'
+    margin: '2rem auto 0'
   },
   media: {
     paddingTop: '56.25%' // 16:9

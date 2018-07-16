@@ -3,7 +3,7 @@ import './App.css';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from './components/Form';
 import Recipes from './components/Recipes';
-require('dotenv').config();
+const env = require('env2')('../.env');
 
 class App extends Component {
   state = {
