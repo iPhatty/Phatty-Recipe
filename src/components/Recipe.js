@@ -27,6 +27,9 @@ const style = {
   },
   spinner: {
     width: '100px',
+    height: '100px',
+    marginTop: '-50px',
+    marginLeft: '-50px',
     position: 'absolute',
     top: '50%',
     left: '50%'
